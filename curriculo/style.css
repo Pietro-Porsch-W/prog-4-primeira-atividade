@@ -1,0 +1,254 @@
+/* Base & Tema */
+:root {
+    --bg: #0f1115;
+    --bg-soft: #161922;
+    --text: #e5e7eb;
+    --muted: #a3a7b3;
+    --primary: #3b82f6;
+    --accent: #22d3ee;
+    --border: #252a36;
+    --card: #12141b;
+    --shadow: 0 8px 20px rgba(0, 0, 0, .25);
+    --radius: 14px;
+}
+
+html[data-theme="light"] {
+    --bg: #f6f7fb;
+    --bg-soft: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --accent: #06b6d4;
+    --border: #e5e7eb;
+    --card: #ffffff;
+    --shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
+}
+
+/* Helpers */
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(180deg, var(--bg-soft), transparent);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+}
+
+.header-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.site-nav .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.site-nav a {
+    color: var(--text);
+    text-decoration: none;
+    padding: .5rem .75rem;
+    border-radius: 10px;
+    transition: transform .1s ease, background .2s ease;
+}
+
+.site-nav a:hover {
+    background: var(--bg-soft);
+    transform: translateY(-1px);
+}
+
+.actions {
+    margin-left: auto;
+    display: flex;
+    gap: .5rem;
+}
+
+/* Buttons */
+.btn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    color: var(--text);
+    padding: .6rem .9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform .1s ease, border-color .2s ease, background .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: transparent;
+    color: white;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+/* Cards & Layout */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    margin: 1rem 0 1.25rem;
+    box-shadow: var(--shadow);
+}
+
+.skills-wrap {
+    display: flex;
+    gap: 1.25rem;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.skills-list {
+    flex: 1 1 320px;
+}
+
+.skills-canvas {
+    flex: 1 1 360px;
+    display: grid;
+    gap: .5rem;
+}
+
+/* Links */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: .75rem;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text);
+    padding: .4rem .65rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: background .2s, border-color .2s, transform .1s;
+}
+
+.link:hover {
+    border-color: var(--accent);
+    background: var(--bg-soft);
+    transform: translateY(-1px);
+}
+
+/* Projetos */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.projects {
+    display: grid;
+    gap: .75rem;
+}
+
+.project {
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: .9rem;
+    background: color-mix(in oklab, var(--card), var(--bg) 12%);
+}
+
+/* Formulário */
+.form .grid {
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+    .form .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field {
+    display: grid;
+    gap: .35rem;
+}
+
+.field input {
+    width: 100%;
+    padding: .7rem .8rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    color: var(--text);
+    transition: border-color .2s, outline-color .2s;
+}
+
+.field input:focus {
+    outline: 2px solid color-mix(in oklab, var(--primary) 55%, transparent);
+    border-color: var(--primary);
+}
+
+/* Footer  */
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0 2.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
