@@ -149,6 +149,6 @@
     if (!form) return;
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        alert("Formulário de demonstração: os dados não são enviados.");
+        alert("Formulário de demonstração!");
     });
 })();
